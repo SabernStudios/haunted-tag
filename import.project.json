@@ -1,0 +1,59 @@
+{
+  "name": "haunted-tag-import",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$properties": {
+          "SerializedOverrides": {
+            "BinaryString": ""
+          }
+        },
+        "$path": "imported/Shared"
+      },
+      "$properties": {
+        "SerializedOverrides": {
+          "BinaryString": ""
+        }
+      },
+      "$ignoreUnknownInstances": false
+    },
+    "ServerScriptService": {
+      "$properties": {
+        "SerializedOverrides": {
+          "BinaryString": ""
+        }
+      },
+      "$ignoreUnknownInstances": false,
+      "$path": "imported/ServerScriptService"
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$properties": {
+          "SerializedOverrides": {
+            "BinaryString": ""
+          }
+        },
+        "$ignoreUnknownInstances": false,
+        "$path": "imported/StarterPlayerScripts"
+      },
+      "$properties": {
+        "AvatarJointUpgrade": "Enabled",
+        "CameraMaxZoomDistance": 128.0,
+        "CharacterBreakJointsOnDeath": false,
+        "CharacterUseJumpPower": false,
+        "GameSettingsAvatar": "R6",
+        "HealthDisplayDistance": 0.0,
+        "NameDisplayDistance": 0.0,
+        "SerializedOverrides": {
+          "BinaryString": ""
+        },
+        "UseImprovedCharacterEvents": {
+          "Enum": 0
+        }
+      },
+      "$ignoreUnknownInstances": false
+    },
+    "$ignoreUnknownInstances": false
+  }
+}

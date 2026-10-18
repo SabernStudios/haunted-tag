@@ -1,0 +1,3 @@
+local ClientGuiHandler = {}
+
+return ClientGuiHandler

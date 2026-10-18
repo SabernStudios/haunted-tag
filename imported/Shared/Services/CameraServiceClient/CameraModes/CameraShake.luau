@@ -1,0 +1,3 @@
+local CameraShake = {}
+
+return CameraShake

@@ -1,0 +1,3 @@
+local AnimationTypes = {}
+
+return AnimationTypes
