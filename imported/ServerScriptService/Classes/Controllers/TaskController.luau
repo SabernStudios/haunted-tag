@@ -1,7 +1,7 @@
 local TaskController = {}
 TaskController.__index = TaskController
 
-function TaskController.new(baseCharacter, data: {}?): TaskController
+function TaskController.new(baseCharacter, data: TaskData?): TaskController
 	local self = setmetatable({}, {__index = TaskController})
 	
 	self.DailyTasks = {
@@ -20,6 +20,10 @@ end
 
 type TaskController = typeof(TaskController) & {
 	
+}
+
+type TaskData = {
+	DAILY_TASKS: any
 }
 
 return TaskController

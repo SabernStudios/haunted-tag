@@ -36,4 +36,24 @@ function TaskGuiModule.AddTask(taskName: string, rewards: {}, layoutOrder: numbe
 	return taskPresetClone
 end
 
+function TaskGuiModule.DisplayTask(taskName, rewards, layoutOrder)
+	for _, child in taskFrame:GetChildren() do
+		if child:IsA("Frame") then
+			if child.LayoutOrder == layoutOrder then
+				return
+			end 
+		end
+	end
+
+	local taskPresetClone = taskPreset:Clone()
+	
+	taskPresetClone.Name = taskName
+	taskPresetClone.TaskText.Text = taskName
+	taskPresetClone.LayoutOrder = layoutOrder or 0
+	
+	taskPresetClone.Parent = taskFrame
+	
+	return taskPresetClone
+end
+
 return TaskGuiModule

@@ -1,7 +1,7 @@
 local CooldownController = {}
 CooldownController.__index = CooldownController
 
-function CooldownController.new()
+function CooldownController.new(baseCharacter)
 	local self = setmetatable({}, CooldownController)
 	
 	self.Cooldowns = {}

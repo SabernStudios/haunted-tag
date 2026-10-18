@@ -23,6 +23,8 @@ local function onPlayerAdded(player: Player)
 		name = player.Name,
 		character = character,
 	})
+
+	TaskService:CreatePlayerTasks(player)
 	
 	--RoundService:SpawnPlayerInLobby(player)
 end

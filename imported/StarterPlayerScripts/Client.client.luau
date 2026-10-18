@@ -14,6 +14,7 @@ local itemEvent = sharedFile:WaitForChild("Remotes"):WaitForChild("ItemEvent")
 local pickup = sharedFile:WaitForChild("Remotes"):WaitForChild("Pickup")
 local progressionEvent = sharedFile:WaitForChild("Remotes"):WaitForChild("ProgressionEvent")
 local roundEvent = sharedFile:WaitForChild("Remotes"):WaitForChild("RoundEvent")
+local taskEvent = sharedFile:WaitForChild("Remotes"):WaitForChild("TaskEvent")
 
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -166,6 +167,10 @@ end)
 
 roundEvent.OnClientEvent:Connect(function(eventName: string, payload: {})
 	ClientRoundEventService:OnEvent(eventName, payload)
+end)
+
+taskEvent.OnClientEvent:Connect(function(tag: string, payload: {})
+	ClientTaskService:OnEvent(tag, payload)
 end)
 
 -- Character Death

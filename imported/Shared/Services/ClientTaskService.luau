@@ -18,23 +18,23 @@ function ClientTaskService.OnEvent(self: ClientTaskService, tag: string, payload
 	end
 end
 
-function ClientTaskService.DisplayTasks(taskList: {})
+function ClientTaskService.DisplayTasks(self: ClientTaskService, taskList: {})
 	if not taskList then
 		return
 	end
 	
 	for i = 1, 3 do
-		local task = taskList[i]
+		local taskItem = taskList[i]
 		
-		local taskName = task[1]
-		local taskData = task[2]
+		local taskName = taskItem[1]
+		local taskData = taskItem[2]
 		
 		TaskGuiModule.DisplayTask(taskName, taskData.Rewards, i)
 	end
 end
 
-function ClientTaskService.CompleteTask(task: {})
-	if not task then
+function ClientTaskService.CompleteTask(self: ClientTaskService, taskItem: {})
+	if not taskItem then
 		return
 	end
 end

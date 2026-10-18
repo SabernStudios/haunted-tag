@@ -19,9 +19,11 @@ local difficultyOrder = {
 
 -- Variables
 
-
 -- Definitions
 local TaskDefinitions = require(ReplicatedStorage.Shared.Definitions.Tasks.TaskDefinitions)
+
+-- Remotes
+local taskEvent: RemoteEvent = ReplicatedStorage.Shared.Remotes.TaskEvent
 
 -- Custom Services
 local CharacterService = require(SSS.Services.CharacterService)
@@ -29,13 +31,21 @@ local CharacterService = require(SSS.Services.CharacterService)
 local TaskService = {}
 
 function TaskService.Init(self: TaskService)
+
+end
+
+function TaskService.CreatePlayerTasks(self: TaskService, player: Player)
+	local tasks = self:GenerateTasks()
+
+	local character = CharacterService:GetCharacterFromPlayer(player)
+
+	character.Task.DailyTasks = tasks
 	
-	print(self:GenerateTasks())
+	taskEvent:FireClient(player, "DisplayTasks", {TASKS = character.Task.DailyTasks})
 end
 
 function TaskService.AddProgress(self: TaskService, player: Player, category: string, amount: number)
 	local character = CharacterService:GetCharacterFromPlayer(player)
-	
 end
 
 function TaskService.GenerateTasks(self: TaskService, oldTasks: {}?)
@@ -151,7 +161,7 @@ function TaskService.GetTasksOfDifficulty(self: TaskService, difficulty: string)
 	return tasks
 end
 
-type TaskService = typeof(TaskService) & {
+export type TaskService = typeof(TaskService) & {
 	
 }
 

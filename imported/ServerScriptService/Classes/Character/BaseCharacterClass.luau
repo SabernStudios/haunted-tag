@@ -15,11 +15,9 @@ local SClasses = SSS.Classes
 local Controllers = SClasses.Controllers
 
 -- Base Character Controllers
-local AnimationController = require(Controllers.AnimationController)
 local CooldownController = require(Controllers.CooldownController)
 local CombatController = require(Controllers.CombatController)
 local CurrencyController = require(Controllers.CurrencyController)
-local EnemyBrainController = require(Controllers.EnemyBrainController)
 local InputController = require(Controllers.InputController)
 local ItemController = require(Controllers.ItemController)
 local MovementController = require(Controllers.MovementController)
@@ -55,7 +53,7 @@ local CharacterService = require(SSS.Services.CharacterService)
 function BaseCharacterClass.new(params: {
 	name: string,
 	character: Model,
-	controllerData: {},
+	controllerData: ControllerData?,
 	}): BaseCharacterClass
 	
 	local self = setmetatable({}, BaseCharacterClass)
@@ -66,10 +64,6 @@ function BaseCharacterClass.new(params: {
 	self.Character = params.character
 	self.Humanoid = self.Character:WaitForChild("Humanoid")
 	self.RootPart = self.Character:WaitForChild("HumanoidRootPart")
-	
-	if params.NPCData then
-		self.IsNPC = params.NPCData.IsNPC or false
-	end
 	
 	-- Initializes class modules
 	
@@ -82,11 +76,6 @@ function BaseCharacterClass.new(params: {
 	-- State Readers/ Controllers
 	self.TimedState = TimedStateController.new(self.State :: StateMachine, self.Input :: InputController)
 	self.Cooldown = CooldownController.new(self :: BaseCharacterClass)
-	
-	if self.IsNPC then
-		self.Brain = EnemyBrainController.new(self :: BaseCharacterClass, params.NPCData :: {})
-		self.Animation = AnimationController.new(self :: BaseCharacterClass)
-	end
 	
 	-- Frill Stuff
 	if params.controllerData ~= {} and params.controllerData ~= nil then
@@ -143,8 +132,15 @@ function BaseCharacterClass:GetControllerData()
 	}
 end
 
-export type BaseCharacterClass = typeof(BaseCharacterClass) & {
+export type BaseCharacterClass = typeof(BaseCharacterClass.new) & {
 	
+}
+
+type ControllerData = {
+	Currency: any,
+	Item: any,
+	Wardrobe: any,
+	Task: any
 }
 
 return BaseCharacterClass
