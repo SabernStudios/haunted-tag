@@ -72,6 +72,6 @@ end)
 
 --PowerupService:Init()
 
-task.wait(4)
+task.wait(40)
 
---RoundService:StartRound()
+RoundService:StartRound()

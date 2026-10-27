@@ -238,14 +238,6 @@ function RoundService.StartRound(self: RoundService)
 	
 	task.wait(ROUND_COUNTDOWN_TIME)
 	
-	for _, player in Players:GetChildren() do
-		if not self:GetIsPlayerValid(player) then
-			continue
-		end
-
-		currentRound:AddPlayer(player)
-	end
-	
 	self:SpawnValidPlayersInRound()
 	
 	self:SelectGhosts() -- Has built-in wait time

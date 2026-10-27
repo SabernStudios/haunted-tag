@@ -288,7 +288,7 @@ function ClientRoundEventService.OnPlayerSelectedMap(self: ClientRoundEventServi
 	end
 	
 	characterClone.Parent = worldModel
-	camera.CFrame = CFrame.new(characterClone:GetPivot().Position + characterClone.PrimaryPart.CFrame.LookVector * 2, characterClone:GetPivot().Position)
+	camera.CFrame = CFrame.new(characterClone.Head.Position + characterClone.Head.CFrame.LookVector * 2, characterClone.Head.Position)
 	character.Archivable = false
 	
 	--playerPinClone.Image = image
@@ -349,7 +349,7 @@ function ClientRoundEventService.OnPlayerSelectedMode(self: ClientRoundEventServ
 	end
 
 	characterClone.Parent = worldModel
-	camera.CFrame = CFrame.new(characterClone:GetPivot().Position + characterClone.PrimaryPart.CFrame.LookVector * 2, characterClone:GetPivot().Position)
+	camera.CFrame = CFrame.new(characterClone.Head.Position + characterClone.Head.CFrame.LookVector * 2, characterClone.Head.Position)
 	character.Archivable = false
 
 	--playerPinClone.Image = image
