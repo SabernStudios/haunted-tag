@@ -29,6 +29,7 @@ local TagController = require(Controllers.TagController)
 local TaskController = require(Controllers.TaskController)
 local TimedStateController = require(Controllers.TimedStateController)
 local WardrobeController = require(Controllers.WardrobeController)
+local XPController = require(Controllers.XPController)
 
 -- Combat Classes
 local HurtboxClass = require(SClasses.Hitbox.HurtboxClass)
@@ -83,11 +84,13 @@ function BaseCharacterClass.new(params: {
 		self.Item = ItemController.new(self :: BaseCharacterClass, params.controllerData.Item)
 		self.Wardrobe = WardrobeController.new(self :: BaseCharacterClass, params.controllerData.Wardrobe)
 		self.Task = TaskController.new(self :: BaseCharacterClass, params.controllerData.Task)
+		self.XP = XPController.new()
 	else
 		self.Currency = CurrencyController.new(self :: BaseCharacterClass)
 		self.Item = ItemController.new(self :: BaseCharacterClass)
 		self.Wardrobe = WardrobeController.new(self :: BaseCharacterClass)
 		self.Task = TaskController.new(self :: BaseCharacterClass)
+		self.XP = XPController.new()
 	end
 	
 	-- Meta Mutators
