@@ -11,7 +11,6 @@ local lobbySpawnpoints = lobbySpawnpointFolder:GetChildren()
 -- Map
 -- TODO: Change it so that it checks the map with the current round's map, not the workspace's map
 local map = nil
-local mapSpawnpointFolder = nil
 local mapSpawnpoints = nil
 
 -- Classes
@@ -29,7 +28,6 @@ local MapClasses = Classes.Round.MapClass
 local HauntedHouseClass = require(MapClasses.HauntedHouseClass)
 
 -- Mode Classes
-local ModeClass = require(Classes.Round.ModeClass)
 local ModeClasses = Classes.Round.ModeClass
 local ClassicClass = require(ModeClasses.ClassicClass)
 
@@ -46,7 +44,6 @@ local allModes = {
 -- Mode Classes
 -- TODO: Make at least one mode class
 local ModeClass = require(Classes.Round.ModeClass)
-local ModeClasses = Classes.Round.ModeClass
 
 -- Constants
 local MAP_SELECTION_TIME = 15

@@ -6,11 +6,11 @@ function RoundStatsClass.new(player: Player): RoundStatsClass
 	
 	self.Player = player
 	
-	self.PowerupsUsed = 3
-	self.Tags = 10
-	self.TimesTagged = 2
-	self.TimeSurvived = 150
-	self.TimeSpentInChase = 80
+	self.PowerupsUsed = 0
+	self.Tags = 0
+	self.TimesTagged = 0
+	self.TimeSurvived = 0
+	self.TimeSpentInChase = 0
 	
 	return self
 end

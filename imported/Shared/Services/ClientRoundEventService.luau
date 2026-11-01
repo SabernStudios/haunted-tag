@@ -512,8 +512,9 @@ function ClientRoundEventService.OnShowEndScreen(self: ClientRoundEventService, 
 	intValue.Value = 0
 	
 	endScreenGui.Enabled = true
+	endScreenTotalValueText.Text = 0
 	
-	local moneyTween = TweenService:Create(intValue, TweenInfo.new(payload.PER_FRAME_END_SCREEN_TIME*#endScreenGridFrame:GetChildren(), Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Value = payload.TOTAL})
+	local moneyTween = TweenService:Create(intValue, TweenInfo.new(payload.PER_FRAME_END_SCREEN_TIME*#endScreenGridFrame:GetChildren(), Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Value = total})
 	
 	intValue.Changed:Connect(function()
 		endScreenTotalValueText.Text = intValue.Value

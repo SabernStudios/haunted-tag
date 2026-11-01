@@ -1,5 +1,4 @@
 local PS = game:GetService("Players")
-local RS = game:GetService("ReplicatedStorage")
 local SSS = game:GetService("ServerScriptService")
 
 -- Controller Data
@@ -10,8 +9,6 @@ local BaseCharacterClass = require(SSS.Classes.Character.BaseCharacterClass)
 
 -- Custom Services
 local CharacterService = require(SSS.Services.CharacterService)
-local EnemyService = require(SSS.Services.EnemyService)
-local PowerupService = require(SSS.Services.PowerupService)
 local RoundService = require(SSS.Services.RoundService)
 local TaskService = require(SSS.Services.TaskService)
 local TagService = require(SSS.Services.TagService)
@@ -46,8 +43,6 @@ PS.PlayerAdded:Connect(function(player: Player)
 			character = character,
 			controllerData = newControllerData
 		})
-		
-		--RoundService:SpawnPlayerInLobby(player)
 	end)
 	
 	player.CharacterRemoving:Connect(function(character: Model)
@@ -70,8 +65,8 @@ PS.PlayerRemoving:Connect(function(player: Player)
 	-- TODO: Save data
 end)
 
---PowerupService:Init()
+-- Added wait time in order to debug menus
 
-task.wait(40)
+task.wait(3)
 
 RoundService:StartRound()
